@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'your-secret-key-change-in-production')
 
 # Initialize extensions
-CORS(app, origins=["*"], supports_credentials=True)
+CORS(app, origins=["*"], supports_credentials=True, allow_headers=["Content-Type", "Authorization"], expose_headers=["Content-Type", "Authorization"])
 
 # Simple in-memory data store (for demo purposes)
 users_db = {
